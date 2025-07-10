@@ -6,7 +6,7 @@ const timelineItems = [
   {
     period: "2022 – Present",
     title: "B.Tech in Computer Science",
-    organization: "IIIT Pune (Current CGPA: 6.00)",
+    organization: "IIIT Pune (Current CGPA: 6.4)",
     description: "",
     color: "hsl(199, 89%, 48%)",
   },
@@ -14,7 +14,7 @@ const timelineItems = [
     period: "Dec 2024 – Jan 2025",
     title: "Virtual Internship",
     organization: 'C-DAC Noida ("Cyber Gyan")',
-    description: "Project: \"Streamlining Malware Analysis with Cuckoo Sandbox\" - Delivered automated sandbox setup, sample orchestration scripts, and comprehensive reports.",
+    description: "Project: \"Streamlining Malware Analysis with Cuckoo Sandbox\" - Delivered automated sandbox setup, sample orchestration scripts, and comprehensive reports. Certificate: https://drive.google.com/file/d/12lbNeSaEUoXlOeYrc4w6Agrf8-zDt0dn/view",
     color: "hsl(158, 64%, 52%)",
   },
   {
@@ -97,7 +97,25 @@ export default function ExperienceSection() {
                       <h4 className="text-lg font-semibold mb-2 text-white">{item.title}</h4>
                       <p className="text-slate-300 mb-2">{item.organization}</p>
                       {item.description && (
-                        <p className="text-sm text-slate-400">{item.description}</p>
+                        <div className="text-sm text-slate-400">
+                          {item.description.includes('Certificate:') ? (
+                            <div>
+                              <p className="mb-2">
+                                {item.description.split('Certificate:')[0].trim()}
+                              </p>
+                              <a
+                                href={item.description.split('Certificate:')[1].trim()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-[hsl(199,89%,48%)] hover:text-[hsl(188,94%,43%)] transition-colors underline"
+                              >
+                                View Certificate
+                              </a>
+                            </div>
+                          ) : (
+                            <p>{item.description}</p>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>

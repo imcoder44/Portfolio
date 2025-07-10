@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -201,12 +201,20 @@ export default function ContactSection() {
               <Linkedin className="text-2xl text-[hsl(199,89%,48%)]" />
             </motion.a>
             <motion.a
-              href="mailto:tanishqingole44@gmail.com"
+              href="mailto:tanishqingole766@gmail.com"
               className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail className="text-2xl text-[hsl(199,89%,48%)]" />
+            </motion.a>
+            <motion.a
+              href="tel:+918600756454"
+              className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Phone className="text-2xl text-[hsl(199,89%,48%)]" />
             </motion.a>
           </motion.div>
         </div>

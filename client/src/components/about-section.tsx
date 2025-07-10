@@ -63,7 +63,7 @@ export default function AboutSection() {
             >
               <div className="text-3xl mb-4">🎓</div>
               <p className="text-[hsl(199,89%,48%)] font-semibold">B.Tech CS (IIIT Pune)</p>
-              <p className="text-slate-400">Class of 2026</p>
+              <p className="text-slate-400">Class of 2026 • CGPA: 6.4</p>
             </motion.div>
             
             <motion.div

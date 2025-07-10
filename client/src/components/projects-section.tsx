@@ -32,7 +32,7 @@ const projects = [
     title: "Cuckoo Sandbox Pipeline",
     description: "Automated malware analysis with behavior reporting",
     fullDescription: "Designed a Cuckoo Sandbox pipeline on VirtualBox VMs for automated execution, packet capture with Wireshark, and behavior reporting in HTML/PDF.",
-    github: null,
+    github: "https://github.com/imcoder44/Streamlining-Malware-Analysis-Introducing-Cuckoo-Sandbox",
     tech: ["Cuckoo Sandbox", "VirtualBox", "Python", "Wireshark"],
     color: "hsl(25, 95%, 53%)",
   },

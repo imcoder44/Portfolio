@@ -105,4 +105,15 @@ Preferred communication style: Simple, everyday language.
 - **Environment**: Node.js runtime with ES modules support
 - **Port Configuration**: Flexible port assignment for various hosting platforms
 
+## Recent Changes
+
+### January 10, 2025
+- **Portfolio Content Update**: Updated all personal information with authentic details
+  - CGPA updated from 6.00 to 6.4 in About and Experience sections
+  - Email updated to tanishqingole766@gmail.com
+  - Added phone number (+918600756454) as clickable contact link
+  - Added CDAC virtual internship certificate as clickable link
+  - Updated Cuckoo Sandbox project GitHub link
+  - All external links now redirect to authentic profiles and repositories
+
 The application follows modern web development best practices with a focus on performance, accessibility, and maintainability. The cybersecurity theme is reflected in both the content and the visual design with custom color schemes and professional presentation.
