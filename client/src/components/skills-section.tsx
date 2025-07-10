@@ -4,12 +4,12 @@ import { useRef } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const skills = [
-  { name: "Java", icon: "☕", color: "hsl(25, 95%, 53%)", tooltip: "Object-oriented design, multithreading, Spring Boot" },
-  { name: "Python", icon: "🐍", color: "hsl(213, 89%, 48%)", tooltip: "Scripting, automation, Flask, Cuckoo Sandbox integration" },
-  { name: "Bash", icon: "💻", color: "hsl(158, 64%, 52%)", tooltip: "Linux automation, recon frameworks, CI/CD scripts" },
-  { name: "C / C++", icon: "⚡", color: "hsl(259, 94%, 71%)", tooltip: "Low-level programming, buffer management, memory analysis" },
-  { name: "Networking", icon: "🌐", color: "hsl(188, 94%, 43%)", tooltip: "Socket programming, TCP/UDP, packet capture with Wireshark" },
-  { name: "Docker & Linux", icon: "🐳", color: "hsl(213, 89%, 48%)", tooltip: "Container hardening, host-based network isolation" },
+  { name: "Java", icon: "☕", tooltip: "Object-oriented design, multithreading, Spring Boot" },
+  { name: "Python", icon: "🐍", tooltip: "Scripting, automation, Flask, Cuckoo Sandbox integration" },
+  { name: "Bash", icon: "💻", tooltip: "Linux automation, recon frameworks, CI/CD scripts" },
+  { name: "C / C++", icon: "⚡", tooltip: "Low-level programming, buffer management, memory analysis" },
+  { name: "Networking", icon: "🌐", tooltip: "Socket programming, TCP/UDP, packet capture with Wireshark" },
+  { name: "Docker & Linux", icon: "🐳", tooltip: "Container hardening, host-based network isolation" },
 ];
 
 export default function SkillsSection() {
@@ -39,21 +39,29 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-[hsl(222,47%,11%)]" ref={ref}>
+    <section id="skills" className="py-20 bg-black border-t border-green-500/30" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="container mx-auto px-6"
       >
-        <motion.h2
+        <motion.div
           variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
+          className="terminal-window max-w-4xl mx-auto mb-16"
         >
-          <span className="bg-gradient-to-r from-[hsl(199,89%,48%)] to-[hsl(158,64%,52%)] bg-clip-text text-transparent">
-            Technical Skills
-          </span>
-        </motion.h2>
+          <div className="terminal-header">
+            <span className="text-green-500">root@tanishq:/home/arsenal$ cat skills.cfg</span>
+          </div>
+          <div className="terminal-content">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-500 font-mono mb-4">
+              &gt; TECHNICAL_ARSENAL.CFG
+            </h2>
+            <div className="text-green-400 font-mono text-sm">
+              [LOADING_SKILL_MODULES...]
+            </div>
+          </div>
+        </motion.div>
         
         <motion.div
           variants={containerVariants}
@@ -64,22 +72,21 @@ export default function SkillsSection() {
               <TooltipTrigger asChild>
                 <motion.div
                   variants={itemVariants}
-                  className="bg-[hsl(217,33%,17%)] p-6 rounded-xl text-center border border-slate-700 hover:scale-110 hover:rotate-1 transition-all duration-300 cursor-pointer group"
-                  style={{
-                    borderColor: `${skill.color}20`,
-                  }}
-                  whileHover={{
-                    borderColor: `${skill.color}80`,
-                    boxShadow: `0 10px 25px ${skill.color}30`,
-                  }}
+                  className="terminal-window group hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {skill.icon}
+                  <div className="terminal-header">
+                    <span className="text-green-500 text-xs">{skill.name.toLowerCase()}.exe</span>
                   </div>
-                  <p className="text-sm font-medium">{skill.name}</p>
+                  <div className="terminal-content text-center">
+                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300 filter grayscale group-hover:grayscale-0">
+                      {skill.icon}
+                    </div>
+                    <p className="text-green-400 font-mono text-sm font-medium">{skill.name}</p>
+                    <div className="text-green-500 font-mono text-xs mt-1">[ACTIVE]</div>
+                  </div>
                 </motion.div>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent className="bg-black border-green-500/30 text-green-400 font-mono">
                 <p className="max-w-xs">{skill.tooltip}</p>
               </TooltipContent>
             </Tooltip>

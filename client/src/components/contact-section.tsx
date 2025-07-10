@@ -75,28 +75,44 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[hsl(217,33%,17%)]" ref={ref}>
+    <section id="contact" className="py-20 bg-black border-t border-green-500/30" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="container mx-auto px-6"
       >
-        <motion.h2
+        <motion.div
           variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold text-center mb-8"
+          className="terminal-window max-w-4xl mx-auto mb-16"
         >
-          <span className="bg-gradient-to-r from-[hsl(158,64%,52%)] to-[hsl(199,89%,48%)] bg-clip-text text-transparent">
-            Get In Touch
-          </span>
-        </motion.h2>
+          <div className="terminal-header">
+            <span className="text-green-500">root@tanishq:/home/contact$ ./connect.sh</span>
+          </div>
+          <div className="terminal-content">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-500 font-mono mb-4">
+              &gt; ESTABLISH_CONNECTION.SH
+            </h2>
+            <div className="text-green-400 font-mono text-sm">
+              [INITIALIZING_SECURE_CHANNEL...]<br/>
+              [ENCRYPTION: AES-256]<br/>
+              <span className="text-green-500">[READY_FOR_TRANSMISSION]</span>
+            </div>
+          </div>
+        </motion.div>
         
-        <motion.p
+        <motion.div
           variants={itemVariants}
-          className="text-center text-slate-300 mb-12 max-w-2xl mx-auto"
+          className="terminal-window max-w-2xl mx-auto mb-12"
         >
-          I'm always excited to collaborate on security projects or discuss new ideas. Drop me a message!
-        </motion.p>
+          <div className="terminal-content">
+            <p className="text-green-300 font-mono text-sm leading-relaxed">
+              &gt; Excited to collaborate on security projects or discuss new ideas<br/>
+              &gt; Always open to ethical hacking opportunities and research<br/>
+              &gt; Drop a secure message below
+            </p>
+          </div>
+        </motion.div>
         
         <div className="max-w-2xl mx-auto">
           <motion.div variants={itemVariants}>
@@ -107,12 +123,12 @@ export default function ContactSection() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-slate-300">Name</FormLabel>
+                      <FormLabel className="text-green-500 font-mono text-sm">[USERNAME]:</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Your name"
+                          placeholder="Enter username..."
                           {...field}
-                          className="bg-[hsl(222,47%,11%)] border-slate-600 focus:border-[hsl(199,89%,48%)] text-slate-100 placeholder-slate-400"
+                          className="bg-black border-green-500/30 focus:border-green-500 text-green-400 placeholder-green-600 font-mono"
                         />
                       </FormControl>
                       <FormMessage />
@@ -125,13 +141,13 @@ export default function ContactSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-slate-300">Email</FormLabel>
+                      <FormLabel className="text-green-500 font-mono text-sm">[EMAIL_ADDRESS]:</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="your.email@example.com"
+                          placeholder="user@secure.domain"
                           {...field}
-                          className="bg-[hsl(222,47%,11%)] border-slate-600 focus:border-[hsl(199,89%,48%)] text-slate-100 placeholder-slate-400"
+                          className="bg-black border-green-500/30 focus:border-green-500 text-green-400 placeholder-green-600 font-mono"
                         />
                       </FormControl>
                       <FormMessage />
@@ -144,13 +160,13 @@ export default function ContactSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-slate-300">Message</FormLabel>
+                      <FormLabel className="text-green-500 font-mono text-sm">[MESSAGE_PAYLOAD]:</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell me about your project or idea..."
+                          placeholder="Enter secure message payload..."
                           rows={5}
                           {...field}
-                          className="bg-[hsl(222,47%,11%)] border-slate-600 focus:border-[hsl(199,89%,48%)] text-slate-100 placeholder-slate-400 resize-none"
+                          className="bg-black border-green-500/30 focus:border-green-500 text-green-400 placeholder-green-600 font-mono resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -161,13 +177,13 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
-                  className="w-full bg-gradient-to-r from-[hsl(199,89%,48%)] to-[hsl(188,94%,43%)] hover:from-[hsl(199,89%,45%)] hover:to-[hsl(188,94%,40%)] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
+                  className="w-full bg-green-500/10 border border-green-500 text-green-500 font-mono py-3 px-6 rounded transition-all duration-300 hover:bg-green-500/20 hover:scale-105"
                 >
                   {contactMutation.isPending ? (
-                    "Sending..."
+                    "[TRANSMITTING...]"
                   ) : (
                     <>
-                      Send Message
+                      [SEND_MESSAGE]
                       <Send className="ml-2 h-4 w-4" />
                     </>
                   )}
@@ -178,44 +194,56 @@ export default function ContactSection() {
           
           <motion.div
             variants={itemVariants}
-            className="flex justify-center space-x-6 mt-12"
+            className="terminal-window mt-12"
           >
-            <motion.a
-              href="https://github.com/imcoder44"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="text-2xl text-[hsl(199,89%,48%)]" />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/tanishq-ingole-161a7926b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Linkedin className="text-2xl text-[hsl(199,89%,48%)]" />
-            </motion.a>
-            <motion.a
-              href="mailto:tanishqingole766@gmail.com"
-              className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Mail className="text-2xl text-[hsl(199,89%,48%)]" />
-            </motion.a>
-            <motion.a
-              href="tel:+918600756454"
-              className="bg-[hsl(222,47%,11%)] p-4 rounded-lg border border-slate-600 hover:border-[hsl(199,89%,48%)] transition-all duration-300 hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Phone className="text-2xl text-[hsl(199,89%,48%)]" />
-            </motion.a>
+            <div className="terminal-header">
+              <span className="text-green-500">root@tanishq:/home/contact$ ls -la connections/</span>
+            </div>
+            <div className="terminal-content">
+              <div className="text-green-500 font-mono text-xs mb-4">[AVAILABLE_CHANNELS]:</div>
+              <div className="flex justify-center space-x-6">
+                <motion.a
+                  href="https://github.com/imcoder44"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500/10 p-4 rounded border border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Github className="text-xl text-green-500 group-hover:text-green-400" />
+                  <div className="text-green-400 font-mono text-xs mt-1">[GITHUB]</div>
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/tanishq-ingole-161a7926b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500/10 p-4 rounded border border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Linkedin className="text-xl text-green-500 group-hover:text-green-400" />
+                  <div className="text-green-400 font-mono text-xs mt-1">[LINKEDIN]</div>
+                </motion.a>
+                <motion.a
+                  href="mailto:tanishqingole766@gmail.com"
+                  className="bg-green-500/10 p-4 rounded border border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Mail className="text-xl text-green-500 group-hover:text-green-400" />
+                  <div className="text-green-400 font-mono text-xs mt-1">[EMAIL]</div>
+                </motion.a>
+                <motion.a
+                  href="tel:+918600756454"
+                  className="bg-green-500/10 p-4 rounded border border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Phone className="text-xl text-green-500 group-hover:text-green-400" />
+                  <div className="text-green-400 font-mono text-xs mt-1">[PHONE]</div>
+                </motion.a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 const projects = [
   {
@@ -10,7 +10,6 @@ const projects = [
     fullDescription: "A multi-threaded Python toolkit for low-level network hacking: reverse shells, proxy interception, and SSH automation.",
     github: "https://github.com/imcoder44/Basic-Networking",
     tech: ["Python", "Sockets", "Threading", "Paramiko"],
-    color: "hsl(199, 89%, 48%)",
   },
   {
     title: "Recon",
@@ -18,7 +17,6 @@ const projects = [
     fullDescription: "A modular Bash recon framework integrating Nmap, Dirsearch, crt.sh enumeration, and JSON-normalized reporting.",
     github: "https://github.com/imcoder44/Recon",
     tech: ["Bash", "Nmap", "jq", "Dirsearch"],
-    color: "hsl(158, 64%, 52%)",
   },
   {
     title: "SE_Tools_W_AI",
@@ -26,7 +24,6 @@ const projects = [
     fullDescription: "Ethical social-engineering suite with AI-generated payloads, Tor-based phishing, and multi-channel delivery (email/SMS/Discord).",
     github: "https://github.com/imcoder44/SE_Tools_W_AI",
     tech: ["Python", "Flask", "OpenAI API", "Twilio", "Resemble AI"],
-    color: "hsl(188, 94%, 43%)",
   },
   {
     title: "Cuckoo Sandbox Pipeline",
@@ -34,7 +31,6 @@ const projects = [
     fullDescription: "Designed a Cuckoo Sandbox pipeline on VirtualBox VMs for automated execution, packet capture with Wireshark, and behavior reporting in HTML/PDF.",
     github: "https://github.com/imcoder44/Streamlining-Malware-Analysis-Introducing-Cuckoo-Sandbox",
     tech: ["Cuckoo Sandbox", "VirtualBox", "Python", "Wireshark"],
-    color: "hsl(25, 95%, 53%)",
   },
 ];
 
@@ -65,21 +61,31 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-[hsl(217,33%,17%)]" ref={ref}>
+    <section id="projects" className="py-20 bg-black border-t border-green-500/30" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="container mx-auto px-6"
       >
-        <motion.h2
+        <motion.div
           variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
+          className="terminal-window max-w-4xl mx-auto mb-16"
         >
-          <span className="bg-gradient-to-r from-[hsl(158,64%,52%)] to-[hsl(199,89%,48%)] bg-clip-text text-transparent">
-            Open-Source Security Projects
-          </span>
-        </motion.h2>
+          <div className="terminal-header">
+            <span className="text-green-500">root@tanishq:/home/projects$ git status</span>
+          </div>
+          <div className="terminal-content">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-500 font-mono mb-4">
+              &gt; PROJECT_REPOSITORY.GIT
+            </h2>
+            <div className="text-green-400 font-mono text-sm">
+              On branch main<br/>
+              Your branch is up to date with 'origin/main'.<br/>
+              <span className="text-green-500">[4 REPOSITORIES FOUND]</span>
+            </div>
+          </div>
+        </motion.div>
         
         <motion.div
           variants={containerVariants}
@@ -89,57 +95,46 @@ export default function ProjectsSection() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flip-card h-64"
+              className="terminal-window group hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:scale-102"
             >
-              <div className="flip-card-inner">
-                <div
-                  className="flip-card-front bg-[hsl(222,47%,11%)] border p-6 flex flex-col justify-center"
-                  style={{
-                    borderColor: `${project.color}30`,
-                  }}
-                >
-                  <h3 className="text-xl font-bold mb-2" style={{ color: project.color }}>
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-300 text-sm mb-4">{project.description}</p>
+              <div className="terminal-header">
+                <span className="text-green-500">root@github:/{project.title.toLowerCase()}$</span>
+              </div>
+              <div className="terminal-content">
+                <h3 className="text-green-500 font-mono text-lg font-bold mb-2">
+                  &gt; {project.title}
+                </h3>
+                <p className="text-green-300 font-mono text-sm mb-4 leading-relaxed">
+                  {project.fullDescription}
+                </p>
+                
+                <div className="mb-4">
+                  <div className="text-green-500 font-mono text-xs mb-1">[TECH_STACK]:</div>
                   <div className="flex gap-2 flex-wrap">
-                    {project.tech.slice(0, 3).map((tech, techIndex) => (
+                    {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 rounded-md text-xs"
-                        style={{
-                          backgroundColor: `${project.color}20`,
-                          color: project.color,
-                        }}
+                        className="px-2 py-1 bg-green-500/10 border border-green-500/30 rounded text-green-400 font-mono text-xs"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div
-                  className="flip-card-back p-6 flex flex-col justify-center"
-                  style={{
-                    background: `linear-gradient(135deg, ${project.color}, ${project.color}CC)`,
-                  }}
-                >
-                  <p className="text-white text-sm mb-4">{project.fullDescription}</p>
-                  {project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-slate-100 transition-colors inline-flex items-center justify-center gap-2"
-                    >
-                      <Github size={16} />
-                      View on GitHub
-                    </a>
-                  ) : (
-                    <div className="bg-white text-black px-4 py-2 rounded-lg font-medium text-center inline-flex items-center justify-center gap-2">
-                      <ExternalLink size={16} />
-                      Project Documentation
-                    </div>
-                  )}
+                
+                <div className="flex gap-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 bg-green-500/10 border border-green-500 text-green-500 font-mono text-xs rounded transition-all hover:bg-green-500/20 hover:scale-105"
+                  >
+                    <Github size={14} />
+                    <span>VIEW_REPO</span>
+                  </a>
+                  <div className="flex items-center text-green-400 font-mono text-xs">
+                    <span className="animate-pulse">[ACTIVE]</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
