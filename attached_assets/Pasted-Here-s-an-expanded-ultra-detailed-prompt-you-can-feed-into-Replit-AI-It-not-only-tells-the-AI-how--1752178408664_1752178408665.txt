@@ -1,0 +1,116 @@
+Here’s an expanded, ultra‑detailed prompt you can feed into Replit AI. It not only tells the AI how to build the site, but **literally provides every piece of text** you want on each page—so you don’t have to supply any copy separately.
+
+---
+
+**🚀 Full Prompt for Replit AI**
+
+````
+You are a world‑class full‑stack developer and designer. Build me a **production‑ready**, **deployed** portfolio website in React (Vite or CRA) with Tailwind CSS. It must include smooth animations via Framer Motion (page transitions, hover effects, scroll reveals) and use creative layouts (diagonal section dividers, interactive timeline, 3D‑parallax hero). The site must be fully responsive and accessible. Use the following **exact text** and structure:
+
+---
+
+1. HERO / LANDING SECTION  
+   - **Background**: Fullscreen animated gradient or subtle particle animation.  
+   - **Title** (centered, large, bold):  
+     **“Tanishq Arun Ingole”**  
+   - **Subtitle** (slightly smaller, italic):  
+     *“Aspiring Software Security Engineer & CEH‑Aspirant”*  
+   - **Animated Scroll Cue**: small bouncing arrow icon with text: “Scroll to explore →”
+
+2. ABOUT ME SECTION  
+   - **Heading**: “About Me”  
+   - **Paragraph copy** (max 3 sentences):  
+     > I’m a third‑year B.Tech Computer Science student at IIIT Pune, specializing in cybersecurity and ethical hacking. Currently preparing for my CEH certification (expected Sep 2025), I have hands‑on experience in malware analysis, network reconnaissance, and DevSecOps automation. Passionate about building secure systems, I thrive on combining code, cloud, and creativity to solve real‑world security challenges.  
+   - **Quick‑Stats Cards** (3 cards in a row, each with an icon and text):  
+     1. 🎓 B.Tech CS (IIIT Pune) · Class of 2026  
+     2. 🛡️ CEH Certification – In Progress (Expected Sep 2025)  
+     3. 💻 3+ Open‑Source Security Projects  
+
+3. SKILLS SECTION  
+   - **Heading**: “Technical Skills”  
+   - **Animated Icon Grid** (hover tooltip for each):  
+     - **Java** – Object‑oriented design, multithreading, Spring Boot  
+     - **Python** – Scripting, automation, Flask, Cuckoo Sandbox integration  
+     - **Bash** – Linux automation, recon frameworks, CI/CD scripts  
+     - **C / C++** – Low‑level programming, buffer management, memory analysis  
+     - **Networking** – Socket programming, TCP/UDP, packet capture with Wireshark  
+     - **Docker & Linux** – Container hardening, host‑based network isolation  
+
+4. PROJECTS SECTION  
+   - **Heading**: “Open‑Source Security Projects”  
+   - **Layout**: Flip‑card grid or modals on click  
+   - **Project Cards (each with title, GitHub link, 2‑line summary, tech icons)**:
+
+   **a) Basic‑Networking**  
+   - GitHub: https://github.com/imcoder44/Basic-Networking  
+   - Summary: “A multi‑threaded Python toolkit for low‑level network hacking: reverse shells, proxy interception, and SSH automation.”  
+   - Tech: Python, sockets, threading, Paramiko  
+
+   **b) Recon**  
+   - GitHub: https://github.com/imcoder44/Recon  
+   - Summary: “A modular Bash recon framework integrating Nmap, Dirsearch, crt.sh enumeration, and JSON‑normalized reporting.”  
+   - Tech: Bash, Nmap, jq, Dirsearch  
+
+   **c) SE_Tools_W_AI**  
+   - GitHub: https://github.com/imcoder44/SE_Tools_W_AI  
+   - Summary: “Ethical social‑engineering suite with AI‑generated payloads, Tor‑based phishing, and multi‑channel delivery (email/SMS/Discord).”  
+   - Tech: Python, Flask, OpenAI API, Twilio, Resemble AI  
+
+   **d) Cuckoo Sandbox Pipeline**  
+   - Title: “Automated Malware Analysis”  
+   - Docs: link to your CDAC PPT (optional file embed)  
+   - Summary: “Designed a Cuckoo Sandbox pipeline on VirtualBox VMs for automated execution, packet capture with Wireshark, and behavior reporting in HTML/PDF.”  
+   - Tech: Cuckoo Sandbox, VirtualBox, Python, Wireshark  
+
+5. EXPERIENCE & EDUCATION SECTION  
+   - **Heading**: “Experience & Education”  
+   - **Animated Timeline** (scroll‑triggered reveal):
+
+   **• 2022 – Present:**  
+     – B.Tech in Computer Science, IIIT Pune (Current CGPA: 6.00)  
+
+   **• Dec 2024 – Jan 2025:**  
+     – Virtual Internship, C-DAC Noida (“Cyber Gyan”)  
+     – Project: “Streamlining Malware Analysis with Cuckoo Sandbox”  
+     – Delivered automated sandbox setup, sample orchestration scripts, and comprehensive reports.  
+
+   **• CEH Preparation (2024 – 2025):**  
+     – Topics: Reconnaissance, Vulnerability Assessment, Exploitation, Post‑Exploitation, Covering Tracks.  
+     – Labs: Recon framework usage, exploit automation in sandboxed VMs  
+
+6. CONTACT SECTION  
+   - **Heading**: “Get In Touch”  
+   - **Copy**:  
+     > I’m always excited to collaborate on security projects or discuss new ideas. Drop me a message!  
+   - **Contact Form**: fields for Name, Email, Message → submits via serverless function  
+   - **Social Links**:  
+     - GitHub: https://github.com/imcoder44  
+     - LinkedIn: https://www.linkedin.com/in/tanishq-ingole-161a7926b/  
+     - Email icon/button: tanishqingole44@gmail.com  
+
+7. FOOTER  
+   - **Copy**: “© 2025 Tanishq Arun Ingole. Crafted with ♥ and code.”  
+   - **Small Animation**: subtle pulsing heart icon  
+
+---
+
+**Deployment Configuration**  
+- Include `package.json` scripts:  
+  ```json
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "serve -s dist"
+  }
+````
+
+* Use Replit Secrets for any SMTP or API keys (e.g., EMAIL\_HOST, EMAIL\_USER, EMAIL\_PASS).
+* Add `replit.nix` or `.replit` to install dependencies and run `npm run dev`.
+* Ensure CORS and form‑handler endpoints work on the live URL.
+* After generation, run “Deploy” on Replit to get a live link and add your custom domain.
+
+Generate all components, pages, styles, config files, and a README with **exact setup and deploy instructions**. The site should render immediately on your Replit URL with zero additional edits. Good luck!
+
+```
+::contentReference[oaicite:0]{index=0}
+```
