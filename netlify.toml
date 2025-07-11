@@ -1,9 +1,11 @@
 [build]
-  base    = "client"                  # work from client/
-  command = "npm ci && npm run build" # install & build in client/
-  publish = "dist"                    # publish client/dist
+  # Run your entire root build script (client + server packaging)
+  command = "npm ci && npm run build"
+  # Publish the folder that contains your index.html
+  publish = "dist/public"
 
 [[redirects]]
+  # SPA fallback: serve index.html for every path
   from   = "/*"
   to     = "/index.html"
   status = 200
