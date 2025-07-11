@@ -1,9 +1,8 @@
-# Tell Netlify how to build and where to publish
 [build]
-  command = "cd client && npm ci && npm run build"  # go into client and build
-  publish = "client/dist"                         # publish the output folder
+  base    = "client"                  # work from client/
+  command = "npm ci && npm run build" # install & build in client/
+  publish = "dist"                    # publish client/dist
 
-# SPA fallback: serve index.html for every path
 [[redirects]]
   from   = "/*"
   to     = "/index.html"
