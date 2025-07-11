@@ -1,0 +1,11 @@
+[build]
+  # 1) CD into your client folder
+  command = "cd client && npm ci && npm run build"
+  # 2) Publish the folder Vite outputs
+  publish = "client/dist"
+
+[[redirects]]
+  # SPA fallback: serve index.html for every path
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
