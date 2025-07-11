@@ -1,11 +1,11 @@
+# Tell Netlify where to find and build your client app
 [build]
-  # 1) CD into your client folder
-  command = "cd client && npm ci && npm run build"
-  # 2) Publish the folder Vite outputs
-  publish = "client/dist"
+  base    = "client"                   # the folder containing package.json
+  command = "npm ci && npm run build"  # runs in client/
+  publish = "dist"                     # Vite outputs to client/dist
 
+# SPA fallback: serve index.html for every path
 [[redirects]]
-  # SPA fallback: serve index.html for every path
   from   = "/*"
   to     = "/index.html"
   status = 200
